@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -46,6 +47,16 @@ public class AnagramDictionary {
 
     public List<String> getAnagrams(String targetWord) {
         ArrayList<String> result = new ArrayList<String>();
+
+        String sortedTargetWord = sortLetters(targetWord);
+
+        for (String word : wordList) {
+            String sortedWord = sortLetters(word);
+
+            if (sortedTargetWord.equals(sortedWord)) {
+                result.add(word);
+            }
+        }
         return result;
     }
 
@@ -56,5 +67,11 @@ public class AnagramDictionary {
 
     public String pickGoodStarterWord() {
         return "stop";
+    }
+
+    private String sortLetters(String target) {
+        char[] tempArray = target.toCharArray();
+        Arrays.sort(tempArray);
+        return new String(tempArray);
     }
 }
