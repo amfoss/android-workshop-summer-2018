@@ -78,6 +78,25 @@ public class AnagramDictionary {
 
     public List<String> getAnagramsWithOneMoreLetter(String word) {
         ArrayList<String> result = new ArrayList<String>();
+
+        String alphabets = "abcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i < alphabets.length(); ++i) {
+            String tempString = word;
+
+            tempString += alphabets.charAt(i);
+            String key = sortLetters(tempString);
+
+            if (lettersToWord.containsKey(key)) {
+                ArrayList<String> tempList = lettersToWord.get(key);
+
+                for (String test : tempList) {
+                    if (!isGoodWord(test , word)) {
+                        tempList.remove(test);
+                    }
+                }
+                result.addAll(tempList);
+            }
+        }
         return result;
     }
 
