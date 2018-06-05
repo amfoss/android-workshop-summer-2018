@@ -58,7 +58,7 @@ public class AnagramDictionary {
     }
 
     public boolean isGoodWord(String word, String base) {
-        return true;
+        return !word.contains(base) && wordSet.contains(word);
     }
 
     public List<String> getAnagrams(String targetWord) {
