@@ -1,0 +1,11 @@
+Interfaces can NEVER be instantiated directly, unless an 
+anonymous class is used. 
+
+1. Interface object = new Interface(); [Not Possible]
+
+
+   [Possible] 
+2. Interface anotherObject = new Interface(){
+        // Implementation(s) of abstract method(s)
+    };  
+    
