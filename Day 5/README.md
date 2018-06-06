@@ -6,4 +6,4 @@
 2. Anonymous classes
 
 <u>Android Topics:</u>
-1. Scarne's Dice (Incomplete)
+1. Anagrams (Incomplete)
