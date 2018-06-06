@@ -1,0 +1,6 @@
+Types of access modifiers
+
+1. private      [Most restrictive]
+2. default              |   
+3. protected            |  
+4. public       [Least restrictive]
