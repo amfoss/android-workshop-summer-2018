@@ -1,0 +1,14 @@
+try{
+    // Statment which can throw an exception
+}catch(ExceptionName exceptionVariable) {
+    // Catch | Handle the exception here
+}finally {
+    // Will be executed irrespective of whether 
+    // an exception is thrown or not
+}
+
+1. Checked | Compile-time Exceptions
+2. Unchecked | Runtime-time Exceptions
+
+A-> throws -> Handle exception somewhere else
+B-> throw  -> throw an exception
