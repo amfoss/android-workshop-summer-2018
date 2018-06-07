@@ -1,0 +1,13 @@
+#Wed Jun 06 01:56:12 IST 2018
+path.3=classes.dex
+path.2=classes.dex
+path.1=classes.dex
+path.0=classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.3=/home/sparker0i/android-udacity-google-scholarship/Scarne/app/build/intermediates/transforms/dexMerger/debug/13
+base.2=/home/sparker0i/android-udacity-google-scholarship/Scarne/app/build/intermediates/transforms/dexMerger/debug/12
+base.1=/home/sparker0i/android-udacity-google-scholarship/Scarne/app/build/intermediates/transforms/dexMerger/debug/14
+base.0=/home/sparker0i/android-udacity-google-scholarship/Scarne/app/build/intermediates/transforms/dexMerger/debug/11
