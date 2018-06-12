@@ -1,6 +1,11 @@
 package com.sparker0i.weather;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,8 +35,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 20:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    GPSTracker gps = new GPSTracker(this);
 
+                    if (gps.canGetLocation()) {
+                        String lat = gps.getLatitude();
+                        String lon = gps.getLongitude();
+
+                        execute(new String[]{lat , lon});
+                    }
+                    else {
+                        gps.showSettingsAlert();
+                    }
+                }
+                else {
+
+                }
+        }
     }
 
     public void execute(String[] args) {
@@ -64,7 +86,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void run() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this
+                        , new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}
+                        , 20);
+            } else {
+                GPSTracker gps = new GPSTracker(this);
 
+                if (gps.canGetLocation()) {
+                    String lat = gps.getLatitude();
+                    String lon = gps.getLongitude();
+
+                    execute(new String[]{lat, lon});
+                } else {
+                    gps.showSettingsAlert();
+                }
+            }
+        }
+        else {
+            GPSTracker gps = new GPSTracker(this);
+
+            if (gps.canGetLocation()) {
+                String lat = gps.getLatitude();
+                String lon = gps.getLongitude();
+
+                execute(new String[]{lat, lon});
+            } else {
+                gps.showSettingsAlert();
+            }
+        }
     }
 
     @Override
@@ -77,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.gps) {
-            
+            run();
         }
         return super.onOptionsItemSelected(item);
     }
