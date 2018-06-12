@@ -21,11 +21,19 @@ public class WeatherTask extends AsyncTask<String , Void , JSONObject> {
     @Override
     protected JSONObject doInBackground(String... strings) {
         Uri uri;
-        uri = Uri.parse(URL).buildUpon()
-                .appendQueryParameter("q" , strings[0])
-                .appendQueryParameter("appId" , "d5a6ea70ae01e251d9649590d525a286")
-                .appendQueryParameter("units" , "metric")
-                .build();
+        if (strings.length == 1)
+            uri = Uri.parse(URL).buildUpon()
+                    .appendQueryParameter("q" , strings[0])
+                    .appendQueryParameter("appId" , "d5a6ea70ae01e251d9649590d525a286")
+                    .appendQueryParameter("units" , "metric")
+                    .build();
+        else
+            uri = Uri.parse(URL).buildUpon()
+                    .appendQueryParameter("lat" , strings[0])
+                    .appendQueryParameter("lon" , strings[1])
+                    .appendQueryParameter("appId" , "d5a6ea70ae01e251d9649590d525a286")
+                    .appendQueryParameter("units" , "metric")
+                    .build();
 
         HttpURLConnection connection = null;
         InputStream is = null;
