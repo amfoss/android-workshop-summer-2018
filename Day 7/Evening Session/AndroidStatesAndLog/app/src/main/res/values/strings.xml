@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidStatesAndLog</string>
+    <string name="android_state">Android State Change Example</string>
+</resources>
