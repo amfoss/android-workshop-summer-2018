@@ -4,6 +4,11 @@
 
     <item android:title="GPS"
         android:id="@+id/gps"
-        android:icon="@android:drawable/btn_radio"
+        android:icon="@drawable/gps"
+        app:showAsAction="ifRoom"/>
+
+    <item android:title="Search"
+        android:id="@+id/search"
+        android:icon="@drawable/search"
         app:showAsAction="ifRoom"/>
 </menu>
